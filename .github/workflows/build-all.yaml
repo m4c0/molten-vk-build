@@ -1,0 +1,24 @@
+name: Build on all platforms
+on:
+- push
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Clone the MoltenVK repository
+        run: git clone https://github.com/KhronosGroup/MoltenVK.git
+      - name: Retrieve and build the external libraries
+        run: ./fetchDependencies --all
+        working-directory: MoltenVK
+      - name: Building from the Command Line
+        run: make all
+        working-directory: MoltenVK
+      - name: Install
+        run: sudo make install
+        working-directory: MoltenVK
+      - uses: actions/upload-artifact@v2
+        with:
+          name: MoltenVK.xcframework
+          path: /Library/Frameworks/MoltenVK.xcframework
+
