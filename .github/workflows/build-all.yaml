@@ -7,7 +7,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Clone the MoltenVK repository
-        run: git clone --depth=1 --branch v1.1.0 https://github.com/KhronosGroup/MoltenVK.git
+        run: git clone --depth=1 --branch v1.2.2 https://github.com/KhronosGroup/MoltenVK.git
       - name: Retrieve and build the external libraries
         run: ./fetchDependencies --all
         working-directory: MoltenVK
@@ -26,8 +26,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
-          tag_name: v1.1.0
-          release_name: Release v1.1.0
+          tag_name: v1.2.2
+          release_name: Release v1.2.2
           draft: false
           prerelease: false
       - name: Upload Release
