@@ -9,8 +9,8 @@ runs:
   steps:
     - shell: bash
       if: inputs.os == 'macos-latest'
-      working-directory: ${{ inputs.cwd }}
       run: |
         wget https://github.com/m4c0/molten-vk-build/releases/download/v1.2.2/MoltenVK.tgz
         tar zxf MoltenVK.tgz
+        mv Package/Release/MoltenVK/MoltenVK.xcframework ${{ inputs.cwd }}
 
