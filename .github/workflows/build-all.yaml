@@ -39,4 +39,9 @@ jobs:
           asset_path: MoltenVK/MoltenVK.tgz
           asset_name: MoltenVK.tgz
           asset_content_type: application/tar+gzip
+      - name: Test exposed GHA
+        uses: ./.github/actions/setup
+        with:
+          os: macos-latest
+          cwd: test
 
